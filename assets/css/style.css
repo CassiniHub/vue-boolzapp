@@ -21,6 +21,7 @@ main {
 ul {
     list-style: none;
 }
+
 /* - - - - - - - - - - - - - - - - -  */
 
 /* BACKGROUND */
@@ -148,6 +149,12 @@ ul {
 
     padding: 0 15px;
     background-color: #FFFFFF;
+}
+
+.list-chats-nav ul li:hover{
+    cursor: pointer;
+    
+    background-color: lightgray;
 }
 
 .account-chat-img {

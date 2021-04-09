@@ -99,22 +99,13 @@ function init() {
             test: () => {
                 
                 console.log('Hello Boolzap');
-            },
-
-            contactName: (array) => {
-                array.forEach(contact => {
-                    
-                    let name = contact.name;
-                    return name;
-                });
             }
         },
 
         mounted() {
 
             this.test();
-            this.contactName(this.contacts);
-        } 
+        }
     });
 }
 
