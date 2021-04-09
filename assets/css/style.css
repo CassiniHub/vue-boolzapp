@@ -6,6 +6,79 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: 12px;
+}
+
 body {
-    background-color: lightcoral;
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    position: relative;
+}
+
+/* - - - - - - - - - - - - - - - - -  */
+
+/* BACKGROUND */
+
+.background {
+    position: relative;
+    height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px 0;
+}
+
+.background-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    
+    height: 120px;
+    width: 100%;
+
+    background-color: #009688;
+}
+
+.background-body {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    z-index: -1;
+
+    height: calc(100vh - 120px);
+    width: 100%;
+
+    background-color: #D6DBD8;
+}
+
+/* - - - - - - - - - - - - - - - - -  */
+
+/* BOOLZAP WINDOW */
+
+.boolzap-window {
+    display: flex;
+    align-items: stretch;
+
+    height: 100%;
+    width: 1400px;
+
+    background-color: lightpink;
+}
+
+.contacts-bar {
+    width: 400px;
+
+    background-color: lightskyblue;
+}
+
+.chat {
+    flex-grow: 1;
+    
+    background-color: lightyellow;
 }
