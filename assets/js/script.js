@@ -91,6 +91,42 @@ function init() {
                             status: 'received'
                         }
                     ]
+                },
+
+                {
+                    name: 'Pietro',
+                    avatar: '_4',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            text: 'Successo qualcosa?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            text: 'Non mi va di studiare ancora',
+                            status: 'received'
+                        }
+                    ]
+                },
+
+                {
+                    name: 'Clara',
+                    avatar: '_4',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '10/01/2020 15:30:55',
+                            text: 'Non puoi immaginare cosa sia successo?',
+                            status: 'sent'
+                        },
+                        {
+                            date: '10/01/2020 15:50:00',
+                            text: 'Da non crederci',
+                            status: 'received'
+                        }
+                    ]
                 }
             ]
         },
