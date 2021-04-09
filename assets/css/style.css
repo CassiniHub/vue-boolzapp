@@ -80,16 +80,20 @@ ul {
 .contacts-bar {
     flex: 30%;
 
+    display: flex;
+    flex-flow: column nowrap;
+
     background-color: lightskyblue;
 }
 
 .account-personal {
     display: flex;
-    flex: 100%;
     justify-content: start;
     align-items: center;
 
     height: 60px;
+
+    padding: 10px 0;
 
     background-color: #EDEDED;
 }
@@ -109,6 +113,7 @@ ul {
     align-items: center;
 
     height: 40px;
+    padding: 10px 0;
 
     background-color: #F6F6F6;
 }
@@ -122,6 +127,12 @@ ul {
 
     border: none;
     border-radius: 25px;
+}
+
+.list-chats-nav {
+    min-height: 0;
+
+    flex-grow: 1;
 }
 
 .list-chats-nav ul{
