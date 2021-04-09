@@ -18,6 +18,9 @@ main {
     position: relative;
 }
 
+ul {
+    list-style: none;
+}
 /* - - - - - - - - - - - - - - - - -  */
 
 /* BACKGROUND */
@@ -39,7 +42,7 @@ main {
     left: 0;
     z-index: -1;
     
-    height: 120px;
+    height: 140px;
     width: 100%;
 
     background-color: #009688;
@@ -47,7 +50,7 @@ main {
 
 .background-body {
     position: absolute;
-    top: 120px;
+    top: 140px;
     left: 0;
     z-index: -1;
 
@@ -71,14 +74,212 @@ main {
     background-color: lightpink;
 }
 
+/* - - - - - -  */
+
+/* CONTACTS BAR */
 .contacts-bar {
-    width: 400px;
+    flex: 30%;
 
     background-color: lightskyblue;
 }
 
-.chat {
-    flex-grow: 1;
+.account-personal {
+    display: flex;
+    flex: 100%;
+    justify-content: start;
+    align-items: center;
+
+    height: 60px;
+
+    background-color: #EDEDED;
+}
+
+.account-personal img {
+    height: 40px;
+    width: 40px;
+
+    margin: 0 15px;
+
+    border-radius: 50%;
+}
+
+.search-chat-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+
+    background-color: #F6F6F6;
+}
+
+.search-chat-bar > input {
+    flex: 0 1 90%;
+
+    height: 30px;
+
+    padding: 0 15px;
+
+    border: none;
+    border-radius: 25px;
+}
+
+.list-chats-nav ul{
+    overflow-y: auto;
+    height: 100%;
+
+    background-color: #F6F6F6;
+}
+
+.list-chats-nav ul li {
+    display: flex;
+    height: 70px;
+
+    padding: 0 15px;
+    background-color: #FFFFFF;
+}
+
+.account-chat-img {
+    display: flex;
+    align-items: center;
+
+    height: 100%;
+}
+
+.account-chat-img img {
+    height: 50px;
+    width: 50px;
+
+    margin-right: 15px;
+
+    border-radius: 50%;
+}
+
+.account-chat-info {
+    display: flex;
+    flex: 100%;
+    flex-wrap: wrap;
+    align-content: center;
+
+    height: 100%;
+}
+
+.account-chat-info > .account-top-info {
+    display: flex;
+    justify-content: space-between;
     
+    width: 100%;
+}
+
+.account-chat-info > .account-down-info {
+    display: flex;
+    justify-content: space-between;
+    
+    width: 100%;
+}
+
+/* - - - - - -  */
+
+/* CHAT */
+.chat {
+    flex: 70%;
+
     background-color: lightyellow;
+}
+
+/* - - - - - - - - - - - - - - - - -  */
+
+/* MEDIA QUERIES */
+
+/* MD */
+
+@media all and (min-width: 1px) and (max-width: 900px){
+
+    /* BACKGROUND */
+
+    .background {
+        padding: 0 0;
+    }
+
+    /* - - - - - - - - - - - - - - - - -  */
+
+    /* BOOLZAP WINDOW */
+
+    .boolzap-window {
+        height: 100%;
+        width: 100%;
+    }
+
+    .contacts-bar {
+        flex: 40%;
+
+        min-width: 250px;
+    }
+
+    .chat {
+        flex: 60%;
+
+        min-width: 388px;
+    }
+}
+
+/* - - - - - - - - - - - - - - - - -  */
+
+/* MEDIA QUERIES */
+
+/* MD */
+
+@media all and (min-width: 901px) and (max-width: 1200px){
+
+    /* BACKGROUND */
+
+    .background {
+        padding: 0 0;
+    }
+
+    /* - - - - - - - - - - - - - - - - -  */
+
+    /* BOOLZAP WINDOW */
+
+    .boolzap-window {
+        height: 100%;
+        width: 100%;
+    }
+
+    .contacts-bar {
+        flex: 35%;
+    }
+
+    .chat {
+        flex: 65%;
+    }
+}
+
+/* - - - - - - - - - - - - - - - - -  */
+
+/* LG */
+@media all and (min-width: 1201px) and (max-width: 1400px){
+
+    /* BACKGROUND */
+
+    .background {
+        padding: 0 0;
+    }
+
+    /* - - - - - - - - - - - - - - - - -  */
+
+    /* BOOLZAP WINDOW */
+
+    .boolzap-window {
+        height: 100%;
+        width: 100%;
+    }
+
+    .contacts-bar {
+        flex: 30%;
+    }
+
+    .chat {
+        flex: 70%;
+    }
 }
