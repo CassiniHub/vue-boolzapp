@@ -95,7 +95,7 @@ function init() {
 
                 {
                     name: 'Pietro',
-                    avatar: '_4',
+                    avatar: '_5',
                     visible: true,
                     messages: [
                         {
@@ -113,7 +113,7 @@ function init() {
 
                 {
                     name: 'Clara',
-                    avatar: '_4',
+                    avatar: '_6',
                     visible: true,
                     messages: [
                         {
@@ -128,19 +128,43 @@ function init() {
                         }
                     ]
                 }
-            ]
+            ],
+
+            selectedIndex: 0
         },
 
         methods: {
             test: () => {
                 
                 console.log('Hello Boolzap');
+            },
+
+            activeContact: function(contact, index) {
+
+                for (let i = 0; i < this.contacts.length; i++) {
+                    const elem = this.contacts[i];
+                    
+                    if (contact.name == elem.name) {
+                        
+                        this.contacts.visible = true;
+                        this.selectedIndex = index;
+                    } else {
+
+                        this.contacts.visible = false;
+                    }
+                }
+                console.log(contact.visible, this.selectedIndex);
             }
         },
 
         mounted() {
 
             this.test();
+        },
+
+        computed: {
+            
+
         }
     });
 }

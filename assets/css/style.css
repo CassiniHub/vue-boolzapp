@@ -99,7 +99,8 @@ ul {
     background-color: #EDEDED;
 }
 
-.account-personal img {
+.account-personal img,
+.contact-img img {
     height: 40px;
     width: 40px;
 
@@ -180,6 +181,8 @@ ul {
     align-content: center;
 
     height: 100%;
+
+    border-bottom: 1px solid rgb(201, 201, 201);
 }
 
 .account-chat-info > .account-top-info {
@@ -200,9 +203,128 @@ ul {
 
 /* CHAT */
 .chat {
+    display: flex;
+    flex-flow: column nowrap;
     flex: 70%;
 
     background-color: lightyellow;
+}
+
+
+/* - - - - - -  */
+
+/* contact information */
+.contact-info-wrapper {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    
+    height: 60px;
+    
+    padding: 10px 0;
+    border-left: 1px solid rgb(190, 190, 190);
+    
+    background-color: #EDEDED;
+}
+
+.contact-img {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.contact-info {
+    flex: 1 1 70%;
+}
+
+.account-status {
+    color:lightslategrey;
+}
+
+/* - - - - - -  */
+
+/* messages area */
+.messages-area {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    flex-shrink: 1;
+    align-items: flex-end;
+    align-content: flex-end;
+
+    overflow-y: auto;
+
+    background-color: #E5DDD5;
+}
+
+.text-line-sent {
+    display: flex;
+    flex: 100%;
+    justify-content: flex-end;
+}
+
+.text-line-received {
+    display: flex;
+    flex: 100%;
+    justify-content: flex-start;
+}
+
+.sent {
+    display: flex;
+
+    height: 30px;
+
+    margin: 2px 60px;
+    padding: 0 10px;
+
+    border-radius: 5px;
+
+    color: black;
+
+    background-color: #DCF8C6;
+}
+
+.received {
+    display: flex;
+
+    height: 30px;
+
+    margin: 2px 60px;
+    padding: 0 10px;
+
+    border-radius: 5px;
+
+    color: black;
+
+    background-color: white;
+}
+
+.message-text-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.message-time-wrapper {
+    display: flex;
+    align-items: flex-end;
+
+    font-size: 1rem;
+    padding-left: 20px;
+    padding-bottom: 2px;
+
+    color: rgb(128, 128, 128);
+}
+
+/* - - - - - -  */
+
+/* writing area */
+.writing-area{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    height: 60px;
+
+    background-color: #EDEDED;
 }
 
 /* - - - - - - - - - - - - - - - - -  */
