@@ -130,6 +130,10 @@ function init() {
                 }
             ],
 
+            selectedContact: {
+
+            },
+
             selectedIndex: 0
         },
 
@@ -140,6 +144,8 @@ function init() {
             },
 
             activeContact: function(contact, index) {
+
+                this.selectedContact = contact;
 
                 for (let i = 0; i < this.contacts.length; i++) {
                     const elem = this.contacts[i];
@@ -158,7 +164,7 @@ function init() {
         },
 
         mounted() {
-
+            this.selectedContact = this.contacts[this.selectedIndex];
             this.test();
         },
 
