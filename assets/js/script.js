@@ -148,11 +148,6 @@ function init() {
         },
 
         methods: {
-            test: () => {
-                
-                console.log('Hello Boolzap');
-            },
-
             activeContact: function(contact, index) {
                 this.selectedContact = contact;
 
@@ -168,7 +163,6 @@ function init() {
                         this.contacts.visible = false;
                     }
                 }
-                console.log(contact.visible, this.selectedIndex);
             },
 
             addNewMessage: function() {
@@ -197,7 +191,6 @@ function init() {
 
         mounted() {
             this.selectedContact = this.contacts[this.selectedIndex];
-            this.test();
         },
 
         computed: {

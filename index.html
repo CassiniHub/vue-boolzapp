@@ -53,7 +53,7 @@
                                                 <strong>{{ contact.name }}</strong>
                                             </div>
                                             <div class="last-message-time">
-                                                {{ contact.messages[contact.messages.length - 1].date }}
+                                                {{ contact.messages[contact.messages.length - 1].date.substring(11, 16) }}
                                             </div>
                                         </div>
 
@@ -102,7 +102,7 @@
                                     </div>
                                     <div class="message-time-wrapper">
                                         <div class="message-time">
-                                            {{ message.date }}
+                                            {{ message.date.substring(11, 16) }}
                                         </div>
                                     </div>
                                 </div>
