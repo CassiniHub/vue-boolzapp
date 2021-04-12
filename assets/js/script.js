@@ -142,9 +142,7 @@ function init() {
                 date: '10/01/2020 15:50:00',
                 text: '',
                 status: 'sent'
-            },
-            
-            needAnswer: false
+            }
         },
 
         methods: {
@@ -186,16 +184,11 @@ function init() {
                     
                     this.contacts[this.selectedIndex].messages.push(presetAnswer);
                 }, 1000);
-            },
-
-            alignFilteredIndex: function(index, filteredIndex) {
-                
             }
         },
 
         mounted() {
             this.selectedContact = this.contacts[this.selectedIndex];
-            this.alignFilteredIndex();
         },
 
         computed: {
