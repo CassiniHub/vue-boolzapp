@@ -93,7 +93,7 @@
 
                         <!-- messages-area -->
                         <div class="messages-area">
-                            <div v-for="message in contacts[selectedIndex].messages"
+                            <div v-for="message in selectedContact.messages"
                                 :class="(message.status == 'sent') ? 'text-line-sent' : 'text-line-received'">
 
                                 <div :class="message.status">

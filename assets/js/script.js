@@ -186,11 +186,16 @@ function init() {
                     
                     this.contacts[this.selectedIndex].messages.push(presetAnswer);
                 }, 1000);
+            },
+
+            alignFilteredIndex: function(index, filteredIndex) {
+                
             }
         },
 
         mounted() {
             this.selectedContact = this.contacts[this.selectedIndex];
+            this.alignFilteredIndex();
         },
 
         computed: {
@@ -199,6 +204,8 @@ function init() {
                     return contact.name.toLowerCase().includes(this.search.toLowerCase())
                 })
             }
+
+            
         }
     })
 }
