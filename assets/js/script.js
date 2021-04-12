@@ -198,11 +198,10 @@ function init() {
         mounted() {
             this.selectedContact = this.contacts[this.selectedIndex];
             this.test();
-            this.filteredContacts();
         },
 
         computed: {
-            filteredContacts() {
+            filteredContacts: function() {
                 return this.contacts.filter(contact => {
                     return contact.name.toLowerCase().includes(this.search.toLowerCase())
                 })
