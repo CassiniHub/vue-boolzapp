@@ -5,6 +5,8 @@ function init() {
         el: '#app',
 
         data: {
+            search: '',
+
             contacts: [
                 {
                     name: 'Michele',
@@ -134,7 +136,15 @@ function init() {
 
             },
 
-            selectedIndex: 0
+            selectedIndex: 0,
+
+            newMessage: {
+                date: '10/01/2020 15:50:00',
+                text: '',
+                status: 'sent'
+            },
+            
+            needAnswer: false
         },
 
         methods: {
@@ -144,7 +154,6 @@ function init() {
             },
 
             activeContact: function(contact, index) {
-
                 this.selectedContact = contact;
 
                 for (let i = 0; i < this.contacts.length; i++) {
@@ -160,19 +169,46 @@ function init() {
                     }
                 }
                 console.log(contact.visible, this.selectedIndex);
+            },
+
+            addNewMessage: function() {
+                if (this.newMessage.text.length > 0 && this.newMessage.text.charAt(0) !== ' ') {
+
+                    let newMessage = Object.assign({}, this.newMessage);
+                    this.contacts[this.selectedIndex].messages.push(newMessage);
+                    this.newMessage.text = '';
+                    this.presetAnswerMessage();
+                }
+            },
+
+            presetAnswerMessage: function() {    
+                let presetAnswer = {
+                    date: '10/01/2020 15:50:00',
+                    text: 'ok',
+                    status: 'received'
+                }
+
+                setTimeout(() => {
+                    
+                    this.contacts[this.selectedIndex].messages.push(presetAnswer);
+                }, 1000);
             }
         },
 
         mounted() {
             this.selectedContact = this.contacts[this.selectedIndex];
             this.test();
+            this.filteredContacts();
         },
 
         computed: {
-            
-
+            filteredContacts() {
+                return this.contacts.filter(contact => {
+                    return contact.name.toLowerCase().includes(this.search.toLowerCase())
+                })
+            }
         }
-    });
+    })
 }
 
 document.addEventListener("DOMContentLoaded", init);
