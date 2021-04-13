@@ -55,13 +55,13 @@
                                                 <strong>{{ contact.name }}</strong>
                                             </div>
                                             <div class="last-message-time">
-                                                {{ (contact.messages > 0) ? contact.messages[contact.messages.length - 1].date.substring(11, 16) : 'No messages'}}
+                                                {{ (contact.messages.length > 0) ? contact.messages[contact.messages.length - 1].date.substring(11, 16) : 'No messages'}}
                                             </div>
                                         </div>
 
                                         <div class="account-down-info">
                                             <div class="last-message">
-                                                {{ (contact.messages > 0) ? contact.messages[contact.messages.length - 1].text : ''}}
+                                                {{ (contact.messages.length > 0) ? contact.messages[contact.messages.length - 1].text : ''}}
                                             </div>
                                             <div class="not-readed-messages">
                                                 5

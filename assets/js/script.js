@@ -218,11 +218,12 @@ function init() {
             },
 
             presetAnswerMessage: function() {  
+                const replyIndex = this.selectedIndex;
                 let presetAnswer = this.getNewMessage('ok', 'received');
 
                 setTimeout(() => {
                     
-                    this.selectedContact.messages.push(presetAnswer);
+                    this.filteredContacts[replyIndex].messages.push(presetAnswer);
                 }, 1000);
             },
 
