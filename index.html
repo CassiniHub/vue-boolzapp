@@ -34,8 +34,7 @@
 
                         <div class="search-chat-bar">
                             <input
-                                v-model="search"
-                                @keyup.enter="filteredContacts"
+                                v-model="search"      
                                 type="text" placeholder="Search">
                         </div>
 
@@ -116,7 +115,7 @@
                                 <span>X</span>
                             </div>
                             <input 
-                                v-model="newMessage.text"
+                                v-model="textMessage"
                                 @keyup.enter="addNewMessage"
                                 class="new-message-input"
                                 type="text" placeholder="Write a message">

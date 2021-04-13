@@ -132,63 +132,89 @@ function init() {
                 }
             ],
 
-            selectedContact: {
-
-            },
+            selectedContact: {},
 
             selectedIndex: 0,
 
-            newMessage: {
-                date: '10/01/2020 15:50:00',
-                text: '',
-                status: 'sent'
-            }
+            textMessage: ''
         },
 
         methods: {
             activeContact: function(contact, index) {
                 this.selectedContact = contact;
+                this.selectedIndex   = index;
+            },
 
-                for (let i = 0; i < this.contacts.length; i++) {
-                    const elem = this.contacts[i];
-                    
-                    if (contact.name == elem.name) {
-                        
-                        this.contacts.visible = true;
-                        this.selectedIndex = index;
-                    } else {
+            getNewMessage: function(text, status) {
+                const now   = new Date();
 
-                        this.contacts.visible = false;
-                    }
+                let dd      = now.getDate();
+                let mm      = now.getMonth() + 1;
+                let yyyy    = now.getFullYear();
+                let hours   = now.getHours();
+                let minutes = now.getMinutes();
+                let seconds = now.getSeconds();
+
+                if(dd < 10) {
+                    dd = '0' + dd;
+                }
+
+                if(mm < 10) {
+                    mm = '0' + mm;
+                }
+
+                if(hours < 10) {
+                    hours = '0' + hours;
+                }
+
+                if(minutes < 10) {
+                    minutes = '0' + minutes;
+                }
+
+                if(seconds < 10) {
+                    seconds = '0' + seconds;
+                }
+
+                let today = dd + '/' + mm + '/' + yyyy;
+                
+                const nowStr = today + ' '
+                             + hours + ':'
+                             + minutes + ':'
+                             + seconds;
+                
+                return {
+                    date  : nowStr,
+                    text  : text,
+                    status: status
                 }
             },
 
             addNewMessage: function() {
-                if (this.newMessage.text.length > 0 && this.newMessage.text.charAt(0) !== ' ') {
+                if (this.textMessage.length > 0 && this.textMessage.charAt(0) !== ' ') {
 
-                    let newMessage = Object.assign({}, this.newMessage);
-                    this.contacts[this.selectedIndex].messages.push(newMessage);
-                    this.newMessage.text = '';
+
+                    let contact    = this.contacts[this.selectedIndex];
+                    let newMessage = this.getNewMessage(this.textMessage, 'sent');
+
+                    contact.messages.push(newMessage);
+                    this.textMessage = '';
                     this.presetAnswerMessage();
                 }
             },
 
-            presetAnswerMessage: function() {    
-                let presetAnswer = {
-                    date: '10/01/2020 15:50:00',
-                    text: 'ok',
-                    status: 'received'
-                }
+            presetAnswerMessage: function() {  
+                const toReplyIndex = this.selectedIndex;
+                let   presetAnswer = this.getNewMessage('ok', 'received');
 
                 setTimeout(() => {
                     
-                    this.contacts[this.selectedIndex].messages.push(presetAnswer);
+                    this.contacts[toReplyIndex].messages.push(presetAnswer);
                 }, 1000);
             }
         },
 
         mounted() {
-            this.selectedContact = this.contacts[this.selectedIndex];
+            this.selectedContact = this.filteredContacts[this.selectedIndex];
         },
 
         computed: {
@@ -196,9 +222,7 @@ function init() {
                 return this.contacts.filter(contact => {
                     return contact.name.toLowerCase().includes(this.search.toLowerCase())
                 })
-            }
-
-            
+            }            
         }
     })
 }
