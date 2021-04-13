@@ -318,8 +318,17 @@ ul {
     align-items: center;
 }
 
-.message-menu-icon {
+.message-menu {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     padding-left: 10px;
+
+    font-size: 1.3rem;
+
     cursor: pointer;
 }
 
@@ -328,6 +337,8 @@ ul {
 
     top: 15px;
     right: 0;
+
+    display: none;
 }
 
 .dropdown-message-menu{
@@ -362,9 +373,25 @@ ul {
     background-color: #EDEDED;
 }
 
-.emoji-attaches,
+.emoji-attached,
 .send-text {
     margin: 0 20px;
+}
+
+.emoji-attached,
+.send-message {
+    color: rgb(170, 170, 170);
+    font-size: 2rem;
+}
+
+.emoji-icon {
+    margin-right: 10px;
+}
+
+.emoji-icon:hover,
+.attached-icon:hover,
+.send-message:hover {
+    color: gray;
 }
 
 .new-message-input {

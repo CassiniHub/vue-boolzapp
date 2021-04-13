@@ -16,17 +16,20 @@ function init() {
                         {
                             date: '10/01/2020 15:30:55',
                             text: 'Hai portato a spasso il cane?',
-                            status: 'sent'
+                            status: 'sent',
+                            menu: false
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             text: 'Ricordati di dargli da mangiare',
-                            status: 'sent'
+                            status: 'sent',
+                            menu: false
                         },
                         {
                             date: '10/01/2020 16:15:22',
                             text: 'Tutto fatto!',
-                            status: 'received'
+                            status: 'received',
+                            menu: false
                         }
                     ],
                 },
@@ -39,17 +42,20 @@ function init() {
                         {
                             date: '20/03/2020 16:30:00',
                             text: 'Ciao come stai?',
-                            status: 'sent'
+                            status: 'sent',
+                            menu: false
                         },
                         {
                             date: '20/03/2020 16:30:55',
                             text: 'Bene grazie! Stasera ci vediamo?',
-                            status: 'received'
+                            status: 'received',
+                            menu: false
                         },
                         {
                             date: '20/03/2020 16:35:00',
                             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                            status: 'sent'
+                            status: 'sent',
+                            menu: false
                         }
                     ],
                 },
@@ -62,17 +68,20 @@ function init() {
                         {
                             date: '28/03/2020 10:10:40',
                             text: 'La Marianna va in campagna',
-                            status: 'received'
+                            status: 'received',
+                            menu: false
                         },
                         {
                             date: '28/03/2020 10:20:10',
                             text: 'Sicuro di non aver sbagliato chat?',
-                            status: 'sent'
+                            status: 'sent',
+                            menu: false
                         },
                         {
                             date: '28/03/2020 16:15:22',
                             text: 'Ah scusa!',
-                            status: 'received'
+                            status: 'received',
+                            menu: false
                         }
                     ],
                 },
@@ -85,12 +94,14 @@ function init() {
                         {
                             date: '10/01/2020 15:30:55',
                             text: 'Lo sai che ha aperto una nuova pizzeria?',
-                            status: 'sent'
+                            status: 'sent',
+                            menu: false
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             text: 'Si, ma preferirei andare al cinema',
-                            status: 'received'
+                            status: 'received',
+                            menu: false
                         }
                     ]
                 },
@@ -103,12 +114,14 @@ function init() {
                         {
                             date: '10/01/2020 15:30:55',
                             text: 'Successo qualcosa?',
-                            status: 'sent'
+                            status: 'sent',
+                            menu: false
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             text: 'Non mi va di studiare ancora',
-                            status: 'received'
+                            status: 'received',
+                            menu: false
                         }
                     ]
                 },
@@ -121,12 +134,14 @@ function init() {
                         {
                             date: '10/01/2020 15:30:55',
                             text: 'Non puoi immaginare cosa sia successo?',
-                            status: 'sent'
+                            status: 'sent',
+                            menu: false
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             text: 'Da non crederci',
-                            status: 'received'
+                            status: 'received',
+                            menu: false
                         }
                     ]
                 }
@@ -209,6 +224,16 @@ function init() {
                     
                     this.selectedContact.messages.push(presetAnswer);
                 }, 1000);
+            },
+
+            openDeleteMenu: function(message) {
+                message.menu = !message.menu;
+                console.log(message.menu, message.text);
+            },
+
+            deleteMessage: function(index) {
+
+                this.selectedContact.messages.splice(index, 1);
             }
         },
 
