@@ -193,7 +193,7 @@ function init() {
                 if (this.textMessage.length > 0 && this.textMessage.charAt(0) !== ' ') {
 
 
-                    let contact    = this.contacts[this.selectedIndex];
+                    let contact    = this.selectedContact;
                     let newMessage = this.getNewMessage(this.textMessage, 'sent');
 
                     contact.messages.push(newMessage);
@@ -203,12 +203,11 @@ function init() {
             },
 
             presetAnswerMessage: function() {  
-                const toReplyIndex = this.selectedIndex;
-                let   presetAnswer = this.getNewMessage('ok', 'received');
+                let presetAnswer = this.getNewMessage('ok', 'received');
 
                 setTimeout(() => {
                     
-                    this.contacts[toReplyIndex].messages.push(presetAnswer);
+                    this.selectedContact.messages.push(presetAnswer);
                 }, 1000);
             }
         },
