@@ -111,8 +111,9 @@
                                          class="message-menu">
                                         <i class="fas fa-angle-down"></i>
                                         <div :class="message.menu ? 'show' : 'hide'"
-                                             class="dropdown-message-menu">
-                                            <span @click="deleteMessage(index)">Delete message</span>
+                                              class="dropdown-message-menu"
+                                             @click="deleteMessage(index)">
+                                            <span>Delete message</span>
                                         </div>
                                     </div>
                                 </div>

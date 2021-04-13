@@ -229,11 +229,9 @@ function init() {
 
             openDeleteMenu: function(message) {
                 message.menu = !message.menu;
-                console.log(message.menu, message.text);
             },
 
             deleteMessage: function(index) {
-
                 this.selectedContact.messages.splice(index, 1);
             }
         },
@@ -246,8 +244,10 @@ function init() {
             filteredContacts: function() {
                 return this.contacts.filter(contact => {
                     return contact.name.toLowerCase().includes(this.search.toLowerCase())
-                })
-            }            
+                });
+            },
+            
+            
         }
     })
 }
