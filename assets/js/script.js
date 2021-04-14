@@ -147,20 +147,32 @@ function init() {
                 }
             ],
 
+            // Object of the selected contact from filteredContact list
             selectedContact: {},
-
+            
+            // Index of the selected contact referring to filteredContact list
             selectedIndex: 0,
 
+            //input for new chat messages
             textMessage: ''
         },
 
         methods: {
+            // Take information from the contact you've clicked on
             activeContact: function(contact, index) {
+                
+                // Store selected contact object inside a new variable
                 this.selectedContact = contact;
+
+                // Store the index of the selected contact inside a new variable
                 this.selectedIndex   = index;
             },
 
+            // Create the object of the messages you sent and receive
             getNewMessage: function(text, status) {
+
+                // Take the time informations
+                // to make the date we need to visualize
                 const now   = new Date();
 
                 let dd      = now.getDate();
@@ -170,6 +182,7 @@ function init() {
                 let minutes = now.getMinutes();
                 let seconds = now.getSeconds();
 
+                // We want a dd/mm/yyyy so we add a 0 to 1 digit numbers
                 if(dd < 10) {
                     dd = '0' + dd;
                 }
@@ -190,13 +203,17 @@ function init() {
                     seconds = '0' + seconds;
                 }
 
+                // Take today date
                 let today = dd + '/' + mm + '/' + yyyy;
                 
+                // Take seconds precise date
                 const nowStr = today + ' '
                              + hours + ':'
                              + minutes + ':'
                              + seconds;
                 
+                // Return message object with seconds precise date
+                // and status from input parameters ('sent' or 'received')        
                 return {
                     date  : nowStr,
                     text  : text,
@@ -204,45 +221,66 @@ function init() {
                 }
             },
 
+            // Add new message to the selected chat
             addNewMessage: function() {
+
+                // If input on contact search bar is not empty or start with a spacebar value
                 if (this.textMessage.length > 0 && this.textMessage.charAt(0) !== ' ') {
 
-
+                    // Get the contact selected
                     let contact    = this.selectedContact;
+                    // Create the message to send
                     let newMessage = this.getNewMessage(this.textMessage, 'sent');
 
+                    // Push inside the contact messages object the new message
                     contact.messages.push(newMessage);
+
+                    // Eliminate sent text from input bar
                     this.textMessage = '';
+                    // Call the function that makes you have a preset answer to the message you've already sent
                     this.presetAnswerMessage();
                 }
             },
 
+            // Create a preset answer to a send message
             presetAnswerMessage: function() {  
+                // Get the index of the selected contact to avoid bug
+                // when you change chat before the answer ha sended
                 const replyIndex = this.selectedIndex;
+                // Create the answer using getNewMessage
                 let presetAnswer = this.getNewMessage('ok', 'received');
 
+                // Wait a second to push the answer message
                 setTimeout(() => {
                     
+                    // Push the preset answer inside the message object of the selected contact
                     this.filteredContacts[replyIndex].messages.push(presetAnswer);
                 }, 1000);
             },
 
+            // Toggle visibility on the delete menu of a chat message
             openDeleteMenu: function(message) {
+                // Change the value from true (menu visible) to false (menu invisible) and viceversa
                 message.menu = !message.menu;
             },
 
+            // Delete the selected message from the messages array of the selected contact
             deleteMessage: function(index) {
                 this.selectedContact.messages.splice(index, 1);
             }
         },
 
         mounted() {
+            // Get a first selected contact to visualize a chat and don't get errors
             this.selectedContact = this.filteredContacts[this.selectedIndex];
         },
 
         computed: {
+            // Get a filtered contact list based on the contact input "search" bar 
             filteredContacts: function() {
+                // Get the full filteredContact list
                 return this.contacts.filter(contact => {
+                    // Control if your "search" match with some contact names
                     return contact.name.toLowerCase().includes(this.search.toLowerCase())
                 });
             }
