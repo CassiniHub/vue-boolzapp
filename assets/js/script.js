@@ -159,6 +159,8 @@ function init() {
 
         methods: {
             // Take information from the contact you've clicked on
+            // @param {object} contact [get the contact object you've clicked on]
+            // @param {number} index [get the index of the contact object you've clicked on]
             activeContact: function(contact, index) {
                 
                 // Store selected contact object inside a new variable
@@ -169,6 +171,8 @@ function init() {
             },
 
             // Create the object of the messages you sent and receive
+            // @param {string} text [text of the new message taken fron the input this.textMessage]
+            // @param {string} status [define if the message is sent of received]
             getNewMessage: function(text, status) {
 
                 // Take the time informations
@@ -213,7 +217,7 @@ function init() {
                              + seconds;
                 
                 // Return message object with seconds precise date
-                // and status from input parameters ('sent' or 'received')        
+                // and status from input parameters ('sent' or 'received')
                 return {
                     date  : nowStr,
                     text  : text,
@@ -259,12 +263,14 @@ function init() {
             },
 
             // Toggle visibility on the delete menu of a chat message
+            // @param {object} message [selected message from the messages array of the selected contact]
             openDeleteMenu: function(message) {
                 // Change the value from true (menu visible) to false (menu invisible) and viceversa
                 message.menu = !message.menu;
             },
 
             // Delete the selected message from the messages array of the selected contact
+            // @param {number} index [index of the selected message inside messages array]
             deleteMessage: function(index) {
                 this.selectedContact.messages.splice(index, 1);
             }
