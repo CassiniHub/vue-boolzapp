@@ -154,7 +154,12 @@ function init() {
             selectedIndex: 0,
 
             //input for new chat messages
-            textMessage: ''
+            textMessage: '',
+
+            showMenu: {
+                messageIndex: 0,
+                show: false
+            }
         },
 
         methods: {
@@ -248,6 +253,7 @@ function init() {
 
             // Create a preset answer to a send message
             presetAnswerMessage: function() {  
+
                 // Get the index of the selected contact to avoid bug
                 // when you change chat before the answer ha sended
                 const replyIndex = this.selectedIndex;
@@ -261,12 +267,24 @@ function init() {
                     this.filteredContacts[replyIndex].messages.push(presetAnswer);
                 }, 1000);
             },
+            
 
-            // Toggle visibility on the delete menu of a chat message
-            // @param {object} message [selected message from the messages array of the selected contact]
-            openDeleteMenu: function(message) {
-                // Change the value from true (menu visible) to false (menu invisible) and viceversa
-                message.menu = !message.menu;
+            // Open the delete dropdown menu of the choosen message
+            // @param {number} index [index of the selected message inside messages array]
+            openDeleteMenu: function(index) {
+                if(this.showMenu.messageIndex == index) {
+                    this.showMenu.show = !this.showMenu.show;
+                } else {
+                    this.showMenu.messageIndex = index;
+                    this.showMenu.show = true;
+                }
+            },
+
+            // Close delete message dropdown menu when click outside
+            closeMenu: function(){
+                if(this.showMenu.show == true) {
+                    this.showMenu.show = false;
+                }
             },
 
             // Delete the selected message from the messages array of the selected contact
